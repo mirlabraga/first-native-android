@@ -13,9 +13,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.mirla.adapter.*;
-import com.example.mirla.model.*;
-import com.example.mirla.activity.*;
+
+import com.example.mirla.R;
+import com.example.mirla.adapter.NavigationDrawerAdapter;
+import com.example.mirla.model.NavDrawerItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,14 +55,6 @@ public class FragmentDrawer extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // drawer labels
-        titles = getActivity().getResources().getStringArray(R.array.nav_drawer_labels);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflating view layout
@@ -86,7 +79,6 @@ public class FragmentDrawer extends Fragment {
 
         return layout;
     }
-
 
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
         containerView = getActivity().findViewById(fragmentId);
@@ -119,6 +111,15 @@ public class FragmentDrawer extends Fragment {
             }
         });
 
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // drawer labels
+        titles = getActivity().getResources().getStringArray(R.array.nav_drawer_labels);
     }
 
     public static interface ClickListener {
@@ -168,9 +169,6 @@ public class FragmentDrawer extends Fragment {
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
         }
-
-
-
     }
 
     public interface FragmentDrawerListener {

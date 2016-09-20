@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.mirla.activity.R;
+import com.example.mirla.R;
 import com.example.mirla.model.NavDrawerItem;
 
 import java.util.Collections;
@@ -44,8 +44,8 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     @Override
     public void onBindViewHolder(NavigationDrawerAdapter.MyViewHolder holder, int position) {
-        View view = inflater.inflate(R.layout.nav_drawer_row, parent, false);
-        new MyViewHolder(view);
+        NavDrawerItem current = data.get(position);
+        holder.title.setText(current.getTitle());
     }
 
     @Override
